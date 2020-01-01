@@ -1,0 +1,33 @@
+@import "src/styles/variables.scss";
+
+@mixin commonToast() {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  width: 30%;
+
+  @media (max-width: 594px) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -39vh;
+    width: 65%;
+    color: white;
+  }
+}
+
+.dontpressmetoast {
+  @include commonToast();
+  background-color: $palette-violet;
+}
+
+.dontpressmefinaltoast {
+  @include commonToast();
+  background-color: $palette-red;
+  font-size: 1.1em;
+
+  @media (max-width: 594px) {
+    color: white;
+    background-color: $palette-red;
+  }
+}

@@ -1,0 +1,19 @@
+@import "src/styles/variables.scss";
+
+body {
+  background-color: $palette-black;
+
+  // FIXME: Change this colour to a new matching theme colour
+  color: white;
+}
+
+.full_home_site {
+  // prevents scroll
+  max-width: 100vw;
+  height: 100vh;
+  padding: 0px;
+  @media (max-width: $responsive-mob) {
+    display: inline-block;
+    text-align: center;
+  }
+}

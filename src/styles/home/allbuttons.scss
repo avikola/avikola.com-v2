@@ -1,0 +1,23 @@
+@import "src/styles/variables.scss";
+
+.home-buttons-div {
+  position: fixed;
+
+  margin-left: 8.29vw;
+  margin-top: 25.69vh;
+
+  width: 19vw;
+
+  text-align: center;
+
+  @include removeSelection();
+
+  @media (max-width: $responsive-mob) {
+    margin-left: auto;
+    margin-top: 1vh;
+
+    // Button Width Control
+    padding: 0 70px 0 70px;
+    width: 100%;
+  }
+}

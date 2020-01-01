@@ -1,0 +1,33 @@
+@import "src/styles/variables.scss";
+
+// TODO: Make these button positions relative ?
+
+.each-btn {
+  @include trippybox();
+
+  @media (max-width: $responsive-mob) {
+    box-shadow: none;
+    border: 3px solid $palette-violet;
+  }
+}
+
+.default-1 {
+  @media (max-width: $responsive-mob) {
+    margin-top: 1.2vh;
+  }
+}
+.default-2 {
+  margin-top: 10.6vh;
+
+  @media (max-width: $responsive-mob) {
+    margin-top: 1.2vh;
+  }
+}
+
+.default-3 {
+  margin-top: 11.1vh;
+
+  @media (max-width: $responsive-mob) {
+    margin-top: 1.2vh;
+  }
+}
