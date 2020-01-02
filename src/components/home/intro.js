@@ -2,6 +2,7 @@ import React from "react"
 import "../../styles/home/intro.scss"
 import { PressMeToasts } from "../../components/home/pressmetoasts"
 import Confetti from "react-confetti"
+import PropTypes from "prop-types"
 
 export class Intro extends React.Component {
   constructor(props) {
@@ -88,45 +89,63 @@ export class Intro extends React.Component {
   }
 
   render() {
+    let headerType =
+      this.state.dict_check === 2 ? (
+        <h1 className="myname">Avishkar Kolahalu.</h1>
+      ) : (
+        <h1 className="myname" onClick={this.dontPressMe}>
+          Avishkar Kolahalu.
+        </h1>
+      )
+
+    let toastType
+    if (this.state.finalpress === 1)
+      toastType = (
+        <PressMeToasts
+          closeit={this.closeToast.bind(this)}
+          toast_show={this.state.toast_show}
+          press_dictionary={this.press_dictionary}
+          num_of_clicks={this.state.num_of_clicks}
+        />
+      )
+    else if (this.state.finalpress === 2)
+      toastType = (
+        <PressMeToasts
+          closeit={this.closeToast.bind(this)}
+          toast_show={this.state.toast_show}
+          press_dictionary={this.press_dictionary}
+          num_of_clicks={this.state.num_of_clicks}
+        />
+      )
+    else toastType = null
+
+    let confettiSwitch =
+      this.state.dict_check === 3 ? (
+        <Confetti
+          style={{ position: "fixed" }}
+          recycle={this.state.confetti}
+          gravity={this.state.gravity}
+        />
+      ) : null
+
     return (
-      <div className="intro-text">
+      <div className={this.props.introClass}>
         <p className="p-hello">Hello, I'm</p>
 
-        {(this.state.dict_check === 1 || this.state.dict_check === 3) && (
-          <h1 onClick={this.dontPressMe}>Avishkar Kolahalu.</h1>
-        )}
-
-        {this.state.dict_check === 2 && <h1>Avishkar Kolahalu.</h1>}
+        {headerType}
 
         {this.state.dict_check === 2 && this.startConfetti()}
 
-        {this.state.dict_check === 3 && (
-          <Confetti
-            style={{ position: "fixed" }}
-            recycle={this.state.confetti}
-            gravity={this.state.gravity}
-          />
-        )}
+        {confettiSwitch}
 
         <p className="p-sd">&#47;&#47; Software Developer</p>
-        {this.state.finalpress === 1 && (
-          <PressMeToasts
-            closeit={this.closeToast.bind(this)}
-            toast_show={this.state.toast_show}
-            press_dictionary={this.press_dictionary}
-            num_of_clicks={this.state.num_of_clicks}
-          />
-        )}
 
-        {this.state.finalpress === 2 && (
-          <PressMeToasts
-            closeit={this.closeToast.bind(this)}
-            toast_show={this.state.toast_show}
-            press_dictionary={this.press_dictionary}
-            num_of_clicks={this.state.num_of_clicks}
-          />
-        )}
+        {toastType}
       </div>
     )
   }
+}
+
+Intro.propTypes = {
+  introClass: PropTypes.string.isRequired,
 }

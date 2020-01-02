@@ -5,7 +5,7 @@
 
   margin-left: 33.95vw;
   margin-top: 33.15vh;
-
+  //transition: all linear 0.5s;
   cursor: default;
 
   @include removeSelection();
@@ -34,7 +34,7 @@
   }
 }
 
-h1 {
+.myname {
   font-family: "Bebas Neue", cursive;
   font-size: 7.943vw;
   color: $palette-red;

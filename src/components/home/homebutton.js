@@ -1,14 +1,26 @@
 import React from "react"
 import "../../styles/home/homebutton.scss"
+import { Link } from "gatsby"
 
 export class HomeButton extends React.Component {
   constructor(props) {
     super(props)
-    this.buttonState = "default-" + props.num
+    this.state = {
+      animateClick: false,
+      animateState: "",
+    }
+    this.defaultState = "default-" + props.num
   }
   render() {
     return (
-      <div className={`${this.buttonState} each-btn`}>{this.props.label}</div>
+      <Link to={`/${this.props.label}/`} style={{ textDecoration: "none" }}>
+        <div
+          className={`${this.defaultState} each-btn ${this.state.animateState}`}
+          onClick={() => this.setState({ animateState: " animate-button" })}
+        >
+          {this.props.label}
+        </div>
+      </Link>
     )
   }
 }

@@ -1,14 +1,20 @@
 @import "src/styles/variables.scss";
 
-// TODO: Make these button positions relative ?
+@media (min-width: $responsive-mob+1) {
+}
 
 .each-btn {
   @include trippybox();
+  transition: all linear 5s;
 
   @media (max-width: $responsive-mob) {
     box-shadow: none;
     border: 3px solid $palette-violet;
   }
+}
+
+.animate-button {
+  box-shadow: none;
 }
 
 .default-1 {
