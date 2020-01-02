@@ -5,7 +5,8 @@
 
 .each-btn {
   @include trippybox();
-  transition: all linear 5s;
+  //transition: transform linear 0.1s, box-shadow linear 0.1s;
+  position: relative;
 
   @media (max-width: $responsive-mob) {
     box-shadow: none;
@@ -13,8 +14,36 @@
   }
 }
 
-.animate-button {
-  box-shadow: none;
+div.animate-button {
+  animation: button-click-desktop 0.2s;
+
+  @media (max-width: $responsive-mob) {
+    animation: button-click-mobile 1s;
+  }
+}
+
+@keyframes button-click-desktop {
+  50% {
+    box-shadow: none;
+    transform: translate(-12px, 10px);
+    animation-timing-function: cubic-bezier(1, 1.84, 0.89, 1.25);
+  }
+  100% {
+    box-shadow: -12px 10px;
+  }
+}
+
+@keyframes button-click-mobile {
+  30% {
+    background-color: $palette-violet;
+    border-color: $palette-red;
+    color: $palette-red;
+  }
+  100% {
+    background-color: $palette-red;
+    border-color: $palette-violet;
+    color: $palette-violet;
+  }
 }
 
 .default-1 {
