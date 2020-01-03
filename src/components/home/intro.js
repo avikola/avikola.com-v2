@@ -129,18 +129,20 @@ export class Intro extends React.Component {
       ) : null
 
     return (
-      <div className={this.props.introClass}>
-        <p className="p-hello">Hello, I'm</p>
+      <div className="introOuter">
+        <div className={this.props.introClass}>
+          <p className="p-hello">Hello, I'm</p>
 
-        {headerType}
+          {headerType}
 
-        {this.state.dict_check === 2 && this.startConfetti()}
+          {this.state.dict_check === 2 && this.startConfetti()}
 
-        {confettiSwitch}
+          {confettiSwitch}
 
-        <p className="p-sd">&#47;&#47; Software Developer</p>
+          <p className="p-sd">&#47;&#47; Software Developer</p>
 
-        {toastType}
+          {toastType}
+        </div>
       </div>
     )
   }

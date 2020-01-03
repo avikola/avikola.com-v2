@@ -13,7 +13,9 @@ body {
   height: 100vh;
   padding: 0px;
   @media (max-width: $responsive-mob) {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    align-items: center;
   }
 }
