@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Avishkar Kolahalu`,
-    description: `Avishkar Kolahalu // Software Developer`,
-    author: `Avishkar Kolahalu <avishkar1995@gmail.com>`,
+    description: `Avishkar Kolahalu is a software engineer based in Los Angeles and a graduate from USC with a MS degree in Computer Science.`,
+    author: `Avishkar Kolahalu`,
+    siteUrl: `https://avikola.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
