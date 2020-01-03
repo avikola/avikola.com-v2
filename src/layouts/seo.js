@@ -24,7 +24,7 @@ function SEO({ description, lang, meta, title }) {
         allFile(filter: { sourceInstanceName: { eq: "images" } }) {
           edges {
             node {
-              absolutePath
+              publicURL
             }
           }
         }
@@ -68,7 +68,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: `${title} // %s`,
+          content: `Avishkar Kolahalu // ${title}`,
         },
         {
           name: `twitter:description`,
@@ -76,7 +76,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: site.allFile.edges[0].node.absolutePath,
+          content: `https://avikola.com${site.allFile.edges[0].node.publicURL}`,
         },
       ].concat(meta)}
     />
