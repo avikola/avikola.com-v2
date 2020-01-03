@@ -1,18 +1,23 @@
 @import "src/styles/variables.scss";
 
-.hideit {
-  background-color: green;
+div.hideit {
+  position: fixed;
+  @media (max-width: $responsive-mob) {
+    height: 280px;
+    width: 100vw;
+    background-color: $palette-black;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+  }
 }
 
 .home_buttons_div {
-  position: fixed;
-
   display: flex;
   flex-direction: column;
 
   justify-content: space-between;
   height: 50.5vh;
-
   margin-left: 8.29vw;
   margin-top: 25.69vh;
 
@@ -23,13 +28,12 @@
   @include removeSelection();
 
   @media (max-width: $responsive-mob) {
-    position: fixed;
     margin-left: 0px;
     margin-top: 1vh;
     justify-content: space-evenly;
     height: 250px;
 
     // Button Width Control
-    width: 70vw;
+    width: 65vw;
   }
 }

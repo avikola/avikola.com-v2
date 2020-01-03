@@ -9,7 +9,7 @@
   @media (max-width: $responsive-mob) {
     position: relative;
     margin-top: 280px;
-    z-index: -1;
+    height: auto;
   }
 }
 
@@ -17,8 +17,6 @@
   position: fixed;
   margin-left: 33.95vw;
   margin-top: 33.15vh;
-  height: 3500px;
-  background-color: red;
 
   cursor: default;
 
@@ -28,6 +26,7 @@
     position: relative;
     margin-left: auto;
     margin-top: auto;
+    height: 1000px;
     overflow-y: auto;
   }
 }

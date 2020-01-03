@@ -5,7 +5,7 @@
 
 .each-btn {
   @include trippybox();
-  //transition: transform linear 0.1s, box-shadow linear 0.1s;
+
   position: relative;
 
   @media (max-width: $responsive-mob) {
