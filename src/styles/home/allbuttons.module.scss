@@ -1,13 +1,16 @@
 @import "src/styles/variables.scss";
 
+// for scroll sections on mobile.
 div.hideit {
   position: fixed;
   @media (max-width: $responsive-mob) {
-    height: 280px;
+    height: 330px;
     width: 100vw;
-    background-color: $palette-black;
+    margin: auto;
+    background-color: $palette-background;
     display: flex;
     justify-content: center;
+    align-items: center;
     z-index: 2;
   }
 }
@@ -16,24 +19,24 @@ div.hideit {
   display: flex;
   flex-direction: column;
 
-  justify-content: space-between;
+  justify-content: space-evenly;
+
   height: 50.5vh;
   margin-left: 8.29vw;
   margin-top: 25.69vh;
 
-  width: 19vw;
-
+  width: 15vw;
+  transform: scale(1.3);
   text-align: center;
 
   @include removeSelection();
 
   @media (max-width: $responsive-mob) {
     margin-left: 0px;
-    margin-top: 1vh;
-    justify-content: space-evenly;
+    margin-top: 0px;
     height: 250px;
 
     // Button Width Control
-    width: 65vw;
+    width: 50vw;
   }
 }

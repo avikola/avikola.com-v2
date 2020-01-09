@@ -1,6 +1,6 @@
 $palette-red: #ff0000;
 $palette-violet: #6a00ff;
-$palette-black: #0d0d0d; // FIXME: Make it lighter; the contrast rn is too much.
+$palette-background: #800000; // FIXME: Make it lighter; the contrast rn is too much.
 $responsive-mob: 594px;
 
 // Disable Highlight Selection
@@ -15,26 +15,9 @@ $responsive-mob: 594px;
 
 // Home: Box Buttons
 
-@mixin trippybox() {
-  background-color: $palette-red;
-  color: #6a00ff;
-
-  height: 9.6vh;
-
-  line-height: 10.353vh;
-
+@mixin bebas-font() {
   font-family: "Bebas Neue", cursive;
   font-size: 3.646vw;
-
-  box-shadow: -12px 10px $palette-violet;
-
-  cursor: pointer;
-
-  @media (max-width: 594px) {
-    font-size: 46px;
-    line-height: 71.7px;
-    height: 71.7px;
-  }
 }
 
 // ----------------------------
