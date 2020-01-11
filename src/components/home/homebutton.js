@@ -11,22 +11,30 @@ export class HomeButton extends React.Component {
     }
     this.defaultState = "default-" + props.num
   }
-
+  componentDidUpdate() {
+    if (this.state.animateClick === true)
+      if (window.innerWidth > 594)
+        setTimeout(() => {
+          this.setState({ animateState: "", animateClick: false })
+        }, 200)
+      else
+        setTimeout(() => {
+          this.setState({ animateState: "", animateClick: false })
+        }, 1000)
+  }
   render() {
     return (
-      <Link
-        to={`/${this.props.label}/`}
-        style={{ textDecoration: "none" }}
-        className={`button-container ${this.state.animateState}`}
-        onClick={() =>
-          this.setState({
-            animateState: " pushed",
-            animateClick: true,
-          })
-        }
-      >
-        <div className={`${this.defaultState} each-btn`}>
-          <p>{this.props.label}</p>
+      <Link to={`/${this.props.label}/`} style={{ textDecoration: "none" }}>
+        <div
+          className={`${this.defaultState} each-btn ${this.state.animateState}`}
+          onClick={() =>
+            this.setState({
+              animateState: " animate-button",
+              animateClick: true,
+            })
+          }
+        >
+          {this.props.label}
         </div>
       </Link>
     )
