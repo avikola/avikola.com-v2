@@ -2,6 +2,7 @@
 
 div.hideit {
   position: fixed;
+  z-index: 2;
   @media (max-width: $responsive-mob) {
     height: 280px;
     width: 100vw;
@@ -12,7 +13,18 @@ div.hideit {
   }
 }
 
+@media (min-width: $responsive-mob) {
+  .home_buttons_div.not_home {
+    width: 15vw;
+    height: 45vh;
+    margin-left: 11.2vw;
+    margin-top: 32vh;
+  }
+}
+
 .home_buttons_div {
+  transition: all 1s;
+
   display: flex;
   flex-direction: column;
 

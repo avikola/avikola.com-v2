@@ -5,13 +5,60 @@
   padding-left: 18vw;
 }
 
-.introOuter {
+// + animation controls
+.outerBodyContainer {
   @media (max-width: $responsive-mob) {
     position: relative;
     margin-top: 280px;
     height: auto;
   }
 }
+
+.outerBodyContainer.not-home {
+  animation-name: disappear-name;
+  animation-duration: 2s;
+
+  p {
+    opacity: 0;
+    max-height: 0px;
+  }
+
+  .intro-text {
+    margin-left: 10.5vw;
+    margin-top: 5vh;
+    width: 100px;
+  }
+
+  .myname {
+    font-size: 4vw;
+    text-shadow: -0.35vw 0.4vh $palette-violet;
+  }
+
+  div.dontpressmetoast,
+  div.dontpressmefinaltoast {
+    margin-left: 270px;
+    margin-top: -100px;
+  }
+}
+
+@keyframes disappear-name {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: $responsive-mob) {
+  .outerBodyContainer.not-home {
+    display: none;
+  }
+}
+
+/*.outerBodyContainer.not-home {
+  display: none;
+}*/
 
 .intro-text {
   position: fixed;

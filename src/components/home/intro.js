@@ -14,6 +14,7 @@ export class Intro extends React.Component {
       confetti: false,
       gravity: 0.3, // gravity of confetti
       finalpress: 1, // final message toast control
+      isHome: true,
     }
     this.finalpresscheck = true
     this.press_dictionary = [
@@ -88,7 +89,28 @@ export class Intro extends React.Component {
       }, 3000)
   }
 
+  componentWillMount() {
+    if (window.location.pathname !== "/") this.setState({ isHome: false })
+  }
+
+  componentDidMount() {
+    let button_list = document.querySelectorAll(".each-btn")
+    for (var i = 0; i < button_list.length; ++i)
+      button_list[i].addEventListener(
+        "click",
+        () => {
+          requestAnimationFrame(() => {
+            if (window.location.pathname !== "/")
+              this.setState({ isHome: false })
+          })
+        },
+        true
+      )
+  }
+
   render() {
+    let homeChecker = !this.state.isHome ? "not-home" : ""
+
     let headerType =
       this.state.dict_check === 2 ? (
         <h1 className="myname">Avishkar Kolahalu.</h1>
@@ -98,26 +120,15 @@ export class Intro extends React.Component {
         </h1>
       )
 
-    let toastType
-    if (this.state.finalpress === 1)
-      toastType = (
+    let toastType =
+      this.state.finalpress === 1 || this.state.finalpress === 2 ? (
         <PressMeToasts
           closeit={this.closeToast.bind(this)}
           toast_show={this.state.toast_show}
           press_dictionary={this.press_dictionary}
           num_of_clicks={this.state.num_of_clicks}
         />
-      )
-    else if (this.state.finalpress === 2)
-      toastType = (
-        <PressMeToasts
-          closeit={this.closeToast.bind(this)}
-          toast_show={this.state.toast_show}
-          press_dictionary={this.press_dictionary}
-          num_of_clicks={this.state.num_of_clicks}
-        />
-      )
-    else toastType = null
+      ) : null
 
     let confettiSwitch =
       this.state.dict_check === 3 ? (
@@ -129,7 +140,7 @@ export class Intro extends React.Component {
       ) : null
 
     return (
-      <div className="introOuter">
+      <div className={`outerBodyContainer ${homeChecker}`}>
         <div className={this.props.introClass}>
           <p className="p-hello">Hello, I'm</p>
 
